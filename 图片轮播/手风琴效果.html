@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+            width: 722px;
+            height: 450px;
+        }
+        #box{
+            margin: 80px auto;
+            width: 800px;
+            height: 450px;
+            border: 1px solid #3391cc;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        #box ul{
+            position: relative;
+            list-style: none;
+        }
+        #box ul li{
+            position: absolute;
+            top: 0;
+            float: left;
+            width: 722px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul class="ul">
+        <li ><img src="img/1.jpg" alt=""></li>
+        <li ><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+    </ul>
+</div>
+
+<script src="jquery.min.js"></script>
+<script>
+    ;(function(){
+        var liLeft = Math.ceil($('#box').width()/4);
+        var _li = $('.ul').find('li');
+
+        for(var i=0;i<_li.length;i++){
+            $(_li[i]).css('left', liLeft*i);
+        }
+
+        for(var j=0;j<_li.length;j++){
+            _li[j].index = j;
+            $(_li[j]).on('mouseover', function(){
+                for(var i=0;i<_li.length;i++){
+                    if(i<=this.index){
+                        $(_li[i]).stop(true).animate({left: 26*i}, 600);
+                    }else{
+                        $(_li[i]).stop(true).animate({left: 26*(i-1)+722}, 600);
+                    }
+                }
+            });
+            $(_li[j]).on('mouseout', function(){
+                for(var i=0;i<_li.length;i++){
+                    $(_li[i]).animate({left: liLeft*i}, 600);
+                }
+            })
+
+        }
+//        alert(liLeft);
+    })();
+</script>
+</body>
+</html>

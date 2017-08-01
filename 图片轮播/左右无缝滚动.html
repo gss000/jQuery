@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右滚动</title>
+    <style>
+        img{
+            display: block;
+            width: 960px;
+            height: 540px;
+        }
+        ul, li{
+            list-style: none;
+        }
+        #box {
+            margin: 0 auto;
+            width: 960px;
+            height: 540px;
+            overflow: hidden;
+            position: relative;
+        }
+        #ul{
+            width: 9999px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #ul li{
+            float: left;
+            width: 960px;
+            height: 540px;
+            background: #fff;
+            opacity: 1;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+        }
+        #ul li img{
+            width: 960px;
+            height: 540px;
+        }
+        #ol{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -42px;
+        }
+        #ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: #f4f4f4;
+            color: #d54b7e;
+            margin-right: 1px;
+            cursor: pointer;
+        }
+        #ol .on{
+            background: #dd310a;
+            color: #fdfdfd;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="ul">
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+    </div>
+    <div id="ol">
+        <li class="on">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </div>
+</div>
+
+<script src="jquery.min.js"></script>
+<script>
+    ;(function(){
+//        左右定时无缝滚动
+        var liW = $('#ul').find('li').width();
+        var $firstLi = $('#ul li:first-child');
+        var _oLi = $('#ol').find('li');
+        var $uLi = $('#ul').find('li');
+        var iul=0, iol= 0, index;
+        var timer = null;
+        run();
+        function run(){
+            timer = setInterval(function(){
+                if(iol == 0){
+                    iul = 0;
+                    $firstLi.css('position', 'static');
+                    $('#ul').css('left', '0');
+                }
+                if(iol == _oLi.length-1){
+                    iol = 0;
+                    $firstLi.css('position', 'relative');
+                    $firstLi.css('left', $uLi.length*liW);
+                }else{
+                    iol++;
+                }
+                iul++;
+                index = iol;
+                _oLi.removeClass();
+                $(_oLi[iol]).addClass('on');
+                $('#ul').animate({left: -liW*iul}, 1500);
+            }, 2500);
+        }
+        $('#box').on('mouseover',function(){
+            clearInterval(timer);
+            iol = iul = index;
+        }).on('mouseout', function(){
+            run();
+        });
+
+
+
+    })()
+</script>
+</body>
+</html>

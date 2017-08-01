@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航定位</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{width: 100%;}
+        .menu-body{
+            width: 100%;
+            margin: 0 auto;}
+        .floor{
+            margin-top: 20px;
+            padding-bottom: 20px;
+            border: 1px dotted #9b9b9b;
+            overflow: hidden;
+        }
+        h2{
+            width: 1260px;
+            margin: 0 auto;
+            padding-top: 16px;
+            padding-left: 10px;
+            padding-bottom: 4px;
+            font-weight: bold;
+            border-bottom: 2px solid #0088bb;
+        }
+        .floor ul {
+            width: 1260px;
+            margin-left: 10px;
+        }
+        .floor ul li{
+            float: left;
+            padding-top: 24px;
+            padding-left: 20px;
+            list-style: none;
+        }
+        .floor li a img{
+            border: none;
+        }
+        .menu{
+            position: fixed;
+            top: 100px;
+            right: 20px;
+        }
+        .menu ul li{
+            margin-top: 4px;
+            padding-left: 4px;
+            list-style: none;
+        }
+        .menu ul li a{
+            display: block;
+            width: 70px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+            color: #000;
+            text-decoration: none;
+            text-align: center;
+        }
+        #menu ul li a:hover,
+        #menu ul li a.default{
+            color: #FFFFFF;
+            background: #0088bb;
+        }
+    </style>
+</head>
+<body>
+<div id="menu" class="menu">
+    <ul>
+        <li><a href="#1" class="default" >1F 男装</a></li>
+        <li><a href="#2">2F 女装</a></li>
+        <li><a href="#3">3F 美妆</a></li>
+        <li><a href="#4">4F 数码</a></li>
+        <li><a href="#5">5F 母婴</a></li>
+    </ul>
+</div>
+
+<div id="menu-body" class="menu-body">
+    <h1>疯狗购物</h1>
+    <div id="1" class="floor">
+        <h2>1F 男装</h2>
+        <ul>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+            <li><a href=""><img src="1F.jpg"></a></li>
+        </ul>
+    </div>
+    <div id="2" class="floor">
+        <h2>2F 女装</h2>
+        <ul>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+            <li><a href=""><img src="2F.jpg"></a></li>
+        </ul>
+    </div>
+    <div id="3" class="floor">
+        <h2>3F 美妆</h2>
+        <ul>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+            <li><a href=""><img src="3F.jpg"></a></li>
+        </ul>
+    </div>
+    <div id="4" class="floor">
+        <h2>4F 数码</h2>
+        <ul>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+            <li><a href=""><img src="4F.png"></a></li>
+        </ul>
+    </div>
+    <div id="5" class="floor">
+        <h2>5F 母婴</h2>
+        <ul>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+            <li><a href=""><img src="5F.jpg"></a></li>
+        </ul>
+    </div>
+</div>
+<script src="jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(window).on('scroll',function(){
+            var scrolltop = $(document).scrollTop(),
+                $menu = $('#menu'),
+                $floors = $('#menu-body').find('.floor');
+            var curid;
+            $floors.each(function(){
+                var floor = $(this).offset().top;
+                if(scrolltop > floor-200){
+                    curid = '#' + $(this).attr('id');
+                }else{
+                    return false;
+                }
+                var menuClass = $menu.find('.default');
+                if(menuClass.attr('id') != curid){
+                    menuClass.removeClass('default');
+                    $menu.find('[href='+ curid +']').addClass('default');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
